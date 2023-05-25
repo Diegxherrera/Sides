@@ -7,19 +7,20 @@
 
 import SwiftUI
 
-struct ExpensesView: View {
+struct Transactions: View {
+    @State var steady: String = ""
     var body: some View {
         ScrollView {
             VStack {
                 VStack {
                     HStack {
                         VStack {
-                            Text("RECENTS").font(.footnote).fontWeight(.bold).frame(maxWidth: .infinity,alignment:.leading).foregroundColor(.gray)
+                            Text("Recents").font(.footnote).fontWeight(.bold).frame(maxWidth: .infinity,alignment:.leading).foregroundColor(.gray)
                             Text("Movements").font(.title3).fontWeight(.bold).frame(maxWidth: .infinity,alignment:.leading)
                         }.frame(maxWidth: .infinity,alignment: .leading)
                     }
                     Divider()
-                }.frame(maxWidth: .infinity ,alignment: .leading).padding([.top,.leading,.trailing])
+                }.frame(maxWidth: .infinity, alignment: .leading).padding([.top,.leading,.trailing])
                 ScrollView {
                     Grid {
                         GridRow {
@@ -74,14 +75,14 @@ struct ExpensesView: View {
                 }
             }.frame(width:350, height: 208).background(Color(UIColor.systemBackground)).cornerRadius(15).shadow(color: .gray.opacity(0.5), radius: 40,y:-10).frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top).padding(.top)
             VStack {
-                
+                TextField("$steady", text: $steady)
             }.frame(width:350, height: 400).background(Color(UIColor.systemBackground)).cornerRadius(15).shadow(color: .gray.opacity(0.5), radius: 40,y:+5).frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top).padding()
         }
     }
 }
 
-struct ExpensesView_Previews: PreviewProvider {
+struct Transactions_Previews: PreviewProvider {
     static var previews: some View {
-        ExpensesView()
+        Transactions()
     }
 }

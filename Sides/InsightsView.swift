@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct InsightsView: View {
+    @State public var age = ""
+    @State public var ages = [0...100]
+    @State public var gender: String = ""
+    @State public var genders: [String] = ["Man","M","Woman","W","Non-binary","Other"]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            TextField("Gender", text: $gender)
+            TextField("Age", text: $age)
+        }.onSubmit{
+            
+        }
     }
 }
 
